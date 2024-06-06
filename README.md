@@ -6,12 +6,13 @@ Multi site yapısı ile revize edildi.
     örn: docker-compose run composer create-project laravel/laravel my-site "11.0.\*" --prefer-dist
 3.  dockerfiles klasöründe bulunan conf.d klasörünün içerisinde bulunan dosyayı kopyalayıp projenizi tanımlayan isimle tekrar kaydederek düzenleyin.
     örn:
-    server {
-    listen 80;
-    server*name proje1.test; # Uygun bir domain yazın.
-    index index.php index.html;
-    server_name *;
-    root /var/www/html/my-site/public; # www klasörünün altında oluşturulan yeni klasörünün public klasörünün yolunu ayarlayın.
+
+        server {
+        listen 80;
+        server*name proje1.test; # Uygun bir domain yazın.
+        index index.php index.html;
+        server_name *;
+        root /var/www/html/my-site/public; # www klasörünün altında oluşturulan yeni klasörünün public klasörünün yolunu ayarlayın.
 
           location / {
               try_files $uri $uri/ /index.php?$query_string;
