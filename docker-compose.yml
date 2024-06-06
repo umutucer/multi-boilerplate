@@ -124,3 +124,17 @@ services:
       - 8025:8025
     networks:
       - laravel
+
+  phpmin:
+    image: phpmyadmin:latest
+    container_name: phpmin
+    restart: unless-stopped
+    ports:
+      - "8989:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: secret
+    depends_on:
+      - mysql
+    networks:
+      - laravel
